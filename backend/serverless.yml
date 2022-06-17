@@ -13,7 +13,7 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: '20201221'
 
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'todo'}
   region: ${opt:region, 'us-east-1'}
 
   tracing:
@@ -120,6 +120,7 @@ functions:
       - http:
           method: patch
           path: todos/{todoId}
+          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -149,6 +150,7 @@ functions:
       - http:
           method: delete
           path: todos/{todoId}
+          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -178,6 +180,7 @@ functions:
       - http:
           method: post
           path: todos/{todoId}/attachment
+          cors: true
     iamRoleStatements:
       - Effect: Allow
         Action:
